@@ -1,0 +1,78 @@
+* {
+  box-sizing: border-box;
+  font-family: "AR One Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-image: url(../images/tokyo-at-night.jpg);
+  background-size: cover;
+}
+.header {
+  display: flex;
+  justify-content: center;
+}
+.dateBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(221, 221, 221);
+  width: 20vw;
+  min-width: 300px;
+  border-radius: 2rem;
+  height: 4vh;
+  font-size: 12px;
+  margin-top: 30px;
+}
+.time-date {
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 20vw;
+  min-width: 300px;
+}
+.time {
+  font-weight: 900;
+}
+.main {
+}
+.dashboardTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(131, 131, 131, 0.637);
+  width: 200px;
+  margin: 0 auto;
+  margin-top: 20vh;
+  font-size: 26px;
+  color: white;
+  border-radius: 1rem;
+}
+
+.dashboardBoxes {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  max-width: 1400px;
+  margin-top: 20px;
+}
+.contentBox {
+  margin: 20px;
+  background-color: rgba(221, 221, 221, 0.842);
+  height: 40vh;
+  width: 25vw;
+
+  padding: 10px;
+  border-radius: 1rem;
+}
+.dashboardButton {
+  display: flex;
+  justify-content: center;
+  margin-top: 140px;
+}
+.button {
+  font-size: 30px;
+  padding: 10px;
+}
