@@ -5,24 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="./css/main.css" />
+    <script
+      src="https://kit.fontawesome.com/d684801003.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <header class="header">
       <div class="dateBox">
         <div class="time-date">
-          <h3 class="time">Tid</h3>
-          <h3 class="date">Datum</h3>
+          <h3 id="currentTime" class="time">Tid</h3>
+          <h3 id="currentDate" class="date">Datum</h3>
         </div>
       </div>
     </header>
     <main class="main">
       <div class="dashboardTitle">
-        <h1>hejhej</h1>
+        <h1 id="editableText" contenteditable="true" onclick="enableEditing()">dwa</h1>
       </div>
       <div class="dashboardBoxes">
-        <div class="contentBox">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum,
-          ipsam.
+        <div id="createLinks" class="contentBox">
+          <h2>Snabblänkar</h2>
+          <div>
+            <ol id="displayLinks">
+              
+            </ol>
+          </div>
+          <div id="popup" class="popup" onclick="togglePopup()">
+            Add links
+            <span class="popuptext" id="myPopup" onclick="stopPropagation(event)">
+              <input type="text" id="linkName" placeholder="Enter your domain">
+              <input type="text" id="linkDomain" placeholder="Enter the name">
+              <button onclick="togglePopup(); addLink()">Create shortcut</button>
+            </span>
+          </div>
         </div>
         <div class="contentBox">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rerum, ipsam
