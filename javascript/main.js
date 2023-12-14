@@ -91,6 +91,7 @@ function addLink() {
   const newLinkItem = document.createElement("li");
 
   newLinkItem.innerHTML = `
+  <img height="28" width="28" src='http://www.google.com/s2/favicons?domain=www.${linkName}' />
   <a href="https://www.${linkName}" target="_blank">${linkDomain}</a>
   <i class="fa-regular fa-circle-xmark" onclick="removeLink(this)"></i>
   `;

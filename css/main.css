@@ -68,9 +68,35 @@ body {
   background-color: rgba(221, 221, 221, 0.842);
   height: 40vh;
   width: 25vw;
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 10px;
   border-radius: 1rem;
+}
+.contentBox h2 {
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+.contentBox ol {
+  list-style-type: none;
+}
+.contentBox li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: .5rem;
+  font-size: 20px;
+  width: 250px;
+  height: 50px;
+  padding: 10px;
+  margin-top: 8px;
+}
+.contentBox a {
+  text-decoration: none;
+  color: black;
 }
 .dashboardButton {
   display: flex;
@@ -85,9 +111,12 @@ body {
 
 /* Popup container */
 .popup {
-  position: relative;
+  position: absolute;
   display: inline-block;
   cursor: pointer;
+  top: 750px;
+  margin-left: 15px;
+  font-size: 20px;
 }
 
 /* The actual popup */
@@ -102,9 +131,8 @@ body {
   padding: 8px 0;
   position: absolute;
   z-index: 1;
-  bottom: 125%;
-  left: 50%;
-  margin-left: -80px;
+  bottom: 140%;
+  left: -100px;
 }
 
 /* Popup arrow */
@@ -136,3 +164,6 @@ body {
   from {opacity: 0;}
   to {opacity:1 ;}
 }
+
+
+/* Dashboard styling */
