@@ -5,7 +5,6 @@
   padding: 0;
 }
 body {
-  background-image: url(../images/tokyo-at-night.jpg);
   background-size: cover;
 }
 .header {
@@ -60,7 +59,7 @@ body {
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-  max-width: 1400px;
+  max-width: 1600px;
   margin-top: 20px;
 }
 .contentBox {
@@ -87,7 +86,7 @@ body {
   align-items: center;
   justify-content: space-between;
   background-color: white;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
   font-size: 20px;
   width: 250px;
   height: 50px;
@@ -101,13 +100,12 @@ body {
 .dashboardButton {
   display: flex;
   justify-content: center;
-  margin-top: 140px;
+  margin-top: 90px;
 }
 .button {
   font-size: 30px;
   padding: 10px;
 }
-
 
 /* Popup container */
 .popup {
@@ -119,11 +117,24 @@ body {
   font-size: 20px;
 }
 
+.popupInput {
+  height: 30px;
+  padding: 10px;
+  border-radius: 0.5rem;
+  margin-top: 15px;
+  font-size: 16px;
+}
+.popup button {
+  margin-top: 20px;
+  font-size: 16px;
+  height: 30px;
+  padding: 5px;
+}
 /* The actual popup */
 .popup .popuptext {
   visibility: hidden;
   width: 260px;
-  height: 300px;
+  height: 200px;
   background-color: #555;
   color: #fff;
   text-align: center;
@@ -150,20 +161,76 @@ body {
 /* Toggle this class - hide and show the popup */
 .popup .show {
   visibility: visible;
-  -webkit-animation: fadeIn .3s;
-  animation: fadeIn .5s;
+  -webkit-animation: fadeIn 0.3s;
+  animation: fadeIn 0.5s;
 }
 
 /* Add animation (fade in the popup) */
 @-webkit-keyframes fadeIn {
-  from {opacity: 0;} 
-  to {opacity: 1;}
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fadeIn {
-  from {opacity: 0;}
-  to {opacity:1 ;}
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
+/* Weather */
+
+.time-container {
+  background-color: white;
+  border-radius: 0.5rem;
+  font-size: 14px;
+  width: 270px;
+  height: 80px;
+  padding: 15px;
+  margin: 10px;
+}
+.date {
+  font-size: 16px;
+  font-weight: bold;
+}
+.stats {
+  display: flex;
+  justify-content: space-evenly;
+  width: 250px;
+  height: 38px;
+}
+.temperature {
+  background-color: rgba(221, 221, 221, 0.842);
+  border-radius: 0.5rem;
+  margin: 5px;
+  padding: 5px;
+}
+.windSpeed {
+  background-color: rgba(221, 221, 221, 0.842);
+  border-radius: 0.5rem;
+  margin: 5px;
+  padding: 5px;
+}
+.description {
+  background-color: rgba(221, 221, 221, 0.842);
+  border-radius: 0.5rem;
+  margin: 5px;
+  padding: 5px;
+  text-transform: capitalize;
+}
 
 /* Dashboard styling */
+
+/* Media querys */
+@media only screen and (max-height: 1000px) {
+  /* Different viewport height */
+  .popup {
+    top: 675px;
+  }
+}

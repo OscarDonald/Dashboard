@@ -40,8 +40,6 @@ function updateDate() {
 setInterval(updateDate, 60000);
 updateDate();
 
-// https://api.unsplash.com/photos/dark-neon?orientation=landscape?client_id=AZEWWmFqjiio-lu2GxoUaRUwlPKYBJZneshjVdUm4R4
-
 // 2. Klicka på dashboard namnet för att redigera texten
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -87,12 +85,11 @@ function addLink() {
   let linkDomain = document.getElementById("linkDomain").value;
 
   const displayLinks = document.getElementById("displayLinks");
-
   const newLinkItem = document.createElement("li");
 
   newLinkItem.innerHTML = `
-  <img height="28" width="28" src='http://www.google.com/s2/favicons?domain=www.${linkName}' />
-  <a href="https://www.${linkName}" target="_blank">${linkDomain}</a>
+  <img height="28" width="28" src='http://www.google.com/s2/favicons?domain=www.${linkDomain}' alt="Favicon" />
+  <a href="https://www.${linkDomain}" target="_blank">${linkName}</a>
   <i class="fa-regular fa-circle-xmark" onclick="removeLink(this)"></i>
   `;
   displayLinks.appendChild(newLinkItem);
@@ -107,3 +104,37 @@ function removeLink(element) {
   const listItem = element.closest("li");
   listItem.remove();
 }
+
+// 7. Change background image
+// Sätter en sida då apin bara hämtar 10 olika bilder.
+let currentPage = 1;
+
+async function fetchBackgroundImage() {
+  const apiKey = "zGnaRz821QdR3NkNhyp7OfehNYxz8cYV7ZLNjoiQdrk";
+  const apiUrl = `https://api.unsplash.com/search/photos?query=dark-neon&license=free&orientation=landscape&client_id=${apiKey}&page=${currentPage}`;
+
+  try {
+    const response = await fetch(apiUrl);
+    const data = await response.json();
+
+    // Kontrollera att det finns resultat
+    if (data.results && data.results.length > 0) {
+      const randomIndex = Math.floor(Math.random() * data.results.length);
+      const backgroundImage = data.results[randomIndex].urls.full;
+      // Byt backgrundsbild
+      document.body.style.backgroundImage = `url(${backgroundImage})`;
+
+      // Öka med 1 ny sida
+      currentPage++;
+    } else {
+      console.error("Inga resultat hittades.");
+    }
+  } catch (error) {
+    console.error("Fel vid hämtning av bakgrundsbild: ", error);
+  }
+}
+
+const backgroundButton = document.getElementById("backgroundButton");
+backgroundButton.addEventListener("click", fetchBackgroundImage);
+
+fetchBackgroundImage();
