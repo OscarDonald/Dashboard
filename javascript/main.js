@@ -88,7 +88,7 @@ function addLink() {
   const newLinkItem = document.createElement("li");
 
   newLinkItem.innerHTML = `
-  <img height="28" width="28" src='http://www.google.com/s2/favicons?domain=www.${linkDomain}' alt="Favicon" />
+  <img height="28" width="28" src='http://www.google.com/s2/favicons?domain=www.${linkDomain}' alt="" />
   <a href="https://www.${linkDomain}" target="_blank">${linkName}</a>
   <i class="fa-regular fa-circle-xmark" onclick="removeLink(this)"></i>
   `;
@@ -104,6 +104,24 @@ function removeLink(element) {
   const listItem = element.closest("li");
   listItem.remove();
 }
+
+// 6. Textarea
+// Hämta textarea-elementet
+const textarea = document.getElementById("notes");
+
+// Hämta gamla texten från local storage
+const savedText = localStorage.getItem("savedText");
+if (savedText) {
+  textarea.value = savedText;
+};
+// Eventlistener för att spara texten när den ändras
+textarea.addEventListener('input', function() {
+  const textToSave = textarea.value;
+
+  // Spara texten i localStorage
+  localStorage.setItem("savedText", textToSave);
+})
+
 
 // 7. Change background image
 // Sätter en sida då apin bara hämtar 10 olika bilder.

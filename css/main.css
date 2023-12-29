@@ -34,8 +34,7 @@ body {
 .time {
   font-weight: 900;
 }
-.main {
-}
+
 .dashboardTitle {
   display: flex;
   align-items: center;
@@ -223,6 +222,7 @@ body {
   padding: 5px;
   text-transform: capitalize;
 }
+/* Chuck norris */
 .chuckH2 {
   font-size: 22px;
 }
@@ -230,7 +230,14 @@ body {
   background-color: white;
   margin: 20px;
   padding: 5px;
-  border-radius: .5rem;
+  border-radius: 0.5rem;
+}
+/* Notes */
+#notes {
+  resize: none;
+  border: none;
+  padding: 10px;
+  border-radius: 0.5rem;
 }
 
 /* Dashboard styling */

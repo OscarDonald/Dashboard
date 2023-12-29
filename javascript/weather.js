@@ -29,6 +29,7 @@ async function fetchWeatherData() {
     const response = await fetch(apiUrl);
     const data = await response.json();
 
+    
     // Skapar en const för att lagra värden för varje iteration
     const weatherData = [];
     for (let i = 0; i <= 16; i += 8) {
