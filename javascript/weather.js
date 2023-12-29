@@ -50,7 +50,7 @@ async function fetchWeatherData() {
 
     // Visa informationen på sidan
     displayWeatherInfo(weatherData);
-    console.log(data);
+    
   } catch (error) {
     console.error("Error fetching weather data:", error);
   }

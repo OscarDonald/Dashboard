@@ -111,7 +111,7 @@ let currentPage = 1;
 
 async function fetchBackgroundImage() {
   const apiKey = "zGnaRz821QdR3NkNhyp7OfehNYxz8cYV7ZLNjoiQdrk";
-  const apiUrl = `https://api.unsplash.com/search/photos?query=dark-neon&license=free&orientation=landscape&client_id=${apiKey}&page=${currentPage}`;
+  const apiUrl = `https://api.unsplash.com/search/photos?query=dark-colorful&license=free&orientation=landscape&client_id=${apiKey}&page=${currentPage}`;
 
   try {
     const response = await fetch(apiUrl);
@@ -120,7 +120,7 @@ async function fetchBackgroundImage() {
     // Kontrollera att det finns resultat
     if (data.results && data.results.length > 0) {
       const randomIndex = Math.floor(Math.random() * data.results.length);
-      const backgroundImage = data.results[randomIndex].urls.full;
+      const backgroundImage = data.results[randomIndex].urls.regular;
       // Byt backgrundsbild
       document.body.style.backgroundImage = `url(${backgroundImage})`;
 
