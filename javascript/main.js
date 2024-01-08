@@ -70,6 +70,24 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // 3. Låt användare skapa egna länkar
+document.addEventListener("DOMContentLoaded", loadLinks);
+
+function loadLinks() {
+  const savedLinks = JSON.parse(localStorage.getItem("savedLinks")) || [];
+
+  const displayLinks = document.getElementById("displayLinks");
+
+  savedLinks.forEach((link) => {
+    const newLinkItem = document.createElement("li");
+    newLinkItem.innerHTML = link.html;
+
+    // Lägger till en unik identifierare för varje länk
+    const linkId = link.id || Date.now();
+    newLinkItem.setAttribute("data-link-id", linkId);
+
+    displayLinks.appendChild(newLinkItem);
+  });
+}
 
 function togglePopup() {
   const popup = document.getElementById("myPopup");
@@ -94,15 +112,29 @@ function addLink() {
   `;
   displayLinks.appendChild(newLinkItem);
 
+  // Spara länken i localStorage
+  const savedLinks = JSON.parse(localStorage.getItem("savedLinks")) || [];
+  savedLinks.push({
+    id: Date.now(),
+    html: newLinkItem.innerHTML,
+  });
+  localStorage.setItem("savedLinks", JSON.stringify(savedLinks));
+
   // Rensa input fältet efter att länken har använts
   document.getElementById("linkName").value = "";
   document.getElementById("linkDomain").value = "";
 }
 
-// Tar bort den önskade länken
 function removeLink(element) {
   const listItem = element.closest("li");
   listItem.remove();
+
+  // Uppdatera localStorage efter att länken tagits bort
+  const savedLinks = JSON.parse(localStorage.getItem("savedLinks")) || [];
+  const linkId = listItem.getAttribute("data-link-id");
+
+  const updatedLinks = savedLinks.filter((link) => link.id != linkId);
+  localStorage.setItem("savedLinks", JSON.stringify(updatedLinks));
 }
 
 // 6. Textarea
@@ -113,15 +145,14 @@ const textarea = document.getElementById("notes");
 const savedText = localStorage.getItem("savedText");
 if (savedText) {
   textarea.value = savedText;
-};
+}
 // Eventlistener för att spara texten när den ändras
-textarea.addEventListener('input', function() {
+textarea.addEventListener("input", function () {
   const textToSave = textarea.value;
 
   // Spara texten i localStorage
   localStorage.setItem("savedText", textToSave);
-})
-
+});
 
 // 7. Change background image
 // Sätter en sida då apin bara hämtar 10 olika bilder.
